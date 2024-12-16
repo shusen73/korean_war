@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
-    <style>
+  <style>
         body {
             font-family: "Noto Sans JP", Arial, sans-serif;
             margin: 20px;
@@ -68,8 +68,6 @@
             font-size: 14px;
             color: #333;
         }
-
-
     </style>
 </head>
 <body class="bg-stone-100 text-grary-950">
@@ -129,7 +127,7 @@
             <ruby>共産党<rt>きょうさんとう</rt></ruby>
             <div class="meaning">Communist Party</div>
 	    <div class="image">
-	      <img src="./images/ccp.jpg" alt="korean">
+	      <img id="ccp" src="./images/ccp.jpg" alt="korean">
 	    </div>
         </div>
         <div class="vocab-item">
@@ -299,7 +297,7 @@
             <ruby>残酷<rt>ざんこく</rt></ruby>
             <div class="meaning">Cruel</div>
 	    <div class="image">
-	      <img src="./images/cruel.jpg.webp" alt="korean">
+	      <img src="./images/cruel.png" alt="korean">
 	    </div>
         </div>
         <div class="vocab-item">
@@ -342,4 +340,15 @@
   </div>
 </div>
 </body>
+    <script>
+    // Detect user's system language
+    const userLanguage = navigator.language || navigator.userLanguage;
+
+    // Check if the language is Simplified Chinese
+    const isSimplifiedChinese = userLanguage.startsWith('zh') && (userLanguage.includes('Hans') || userLanguage.includes('CN'));
+
+    // Set image based on the language
+    const imageSrc = isSimplifiedChinese ? "images/ccp-cn.jpg.webp" : "images/ccp.jpg";
+    document.getElementById('dynamicImage').src = imageSrc;
+  </script>
 </html>
