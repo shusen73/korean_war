@@ -345,8 +345,7 @@
     const userLanguage = navigator.language || navigator.userLanguage;
 
     // Check if the language is Simplified Chinese
-    const isSimplifiedChinese = userLanguage.startsWith('zh') && (userLanguage.includes('Hans') || userLanguage.includes('CN'));
-
+    const isSimplifiedChinese = userLanguage.startsWith('zh-CN');
     // Set image based on the language
     const imageSrc = isSimplifiedChinese ? "images/ccp-cn.jpg.webp" : "images/ccp.jpg";
     document.getElementById('ccp').src = imageSrc;
