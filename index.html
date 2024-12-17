@@ -1,352 +1,446 @@
 <!doctype html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
-  <style>
-        body {
-            font-family: "Noto Sans JP", Arial, sans-serif;
-        }
-        .title{
-            /* Apple-like title style */
-            font-size: 36px;
-            font-weight: 600;
-            color: #333333; /* Dark gray for subtle elegance */
-            text-align: center;
-            letter-spacing: 1px; /* Slight letter spacing for refinement */
-            margin: 20px 0; /* Some space above and below the title */
-            transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
-        }
-
-        /* Hover effect */
-        .title:hover {
-            transform: scale(1.05); /* Slight scale up effect for interaction */
-        }
-        .vocab-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .vocab-item {
-            display: flex;
-            flex-direction: column;
-	    flex-shrink: 0;  /* Prevents shrinking when popup content grows */
-            overflow: hidden; /* Prevents overflowing content */
-            align-items: center;
-            width: 180px;
-            margin: 10px;
-            padding: 15px 30px;
-            font-size: 17px;
-            font-weight: 600;
-            text-transform: uppercase;
-            background-color: #ffffff;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            color: #333333;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .vocab-item:hover{
-            background-color: #f5f5f5; /* Subtle background change */
-            transform: translateY(-4px); /* Slight lift effect */
-            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.2); /* Soft, elegant shadow */
-        }
-        /* Active effect when clicked */
-        .vocab-item:active {
-        transform: translateY(2px); /* Subtle downward effect on click */
-        box-shadow: none;
-}
-
-        .vocab-item .meaning {
-            margin-top: 10px;
-            font-size: 14px;
-            color: #333;
-        }
-    </style>
-</head>
-<body class="bg-stone-100 text-grary-950">
-<div class="container mx-auto whitespace-normal ">
-  <h1 class="text-3xl font-bold text-center title">
-	<ruby>言葉<rt>ことば</rt></ruby> のリスト
-  </h1>
-  <hr/>
-  <div class=" vocab-list">
-	<div class="vocab-item">
-            <ruby>朝鮮<rt>ちょうせん</rt></ruby>
-            <div class="meaning">Korea</div>
-	    <div class="image">
-	      <img src="./images/korean.jpg" alt="Korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>戦争<rt>せんそう</rt></ruby>
-            <div class="meaning">War</div>
-	    <div class="image">
-	      <img src="./images/war.webp" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>原因<rt>げんいん</rt></ruby>
-            <div class="meaning">Cause</div>
-	    <div class="image">
-	      <img src="./images/cause.jpg" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>影響<rt>えいきょう</rt></ruby>
-            <div class="meaning">Influence</div>
-	    <div class="image">
-	      <img src="./images/influence.jpeg" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>以外<rt>いがい</rt></ruby>
-            <div class="meaning">Except</div>
-	    <div class="image">
-	      <img src="./images/except.png" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>他の国々<rt>ほかのくに</rt></ruby>
-            <div class="meaning">Other countries</div>
-        </div>
-        <div class="vocab-item">
-            <ruby>内戦<rt>ないせん</rt></ruby>
-            <div class="meaning">Civil war</div>
-	    <div class="image">
-	      <img src="./images/civil-war.jpg" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>共産党<rt>きょうさんとう</rt></ruby>
-            <div class="meaning">Communist Party</div>
-	    <div class="image">
-	      <img id="ccp" src="./images/ccp.jpg" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>勝つ<rt>かつ</rt></ruby>
-            <div class="meaning">To win</div>
-	    <div class="image">
-	      <img src="./images/win.png" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>中華民国<rt>ちゅうかみんこく</rt></ruby>
-            <div class="meaning">Republic of China </div>
-	    <div class="image">
-	      <img src="./images/roc.png" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>台湾<rt>たいわん</rt></ruby>
-            <div class="meaning">Taiwan</div>
-	    <div class="image">
-	      <img src="./images/taiwan.jpg" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>ソ連<rt>それん</rt></ruby>
-            <div class="meaning">Soviet Union</div>
-	    <div class="image">
-	      <img src="./images/soviet-union.svg.png" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>不凍港<rt>ふとうこう</rt></ruby>
-            <div class="meaning">Ice-free port</div>
-	    <div class="image">
-	      <img src="./images/ice-free-port.jpg copy.jpg" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>求める<rt>もとめる</rt></ruby>
-            <div class="meaning">To seek</div>
-	    <div class="image">
-	      <img src="./images/seek.jpeg" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>満州<rt>まんしゅう</rt></ruby>
-            <div class="meaning">Manchuria</div>
-	    <div class="image">
-	      <img src="./images/Northeast_China.svg.png" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>鉄道<rt>てつどう</rt></ruby>
-            <div class="meaning">Railroad</div>
-	    <div class="image">
-	      <img src="./images/railroad.png" alt="korean">
-	    </div>
-
-        </div>
-        <div class="vocab-item">
-            <ruby>港<rt>みなと</rt></ruby>
-            <div class="meaning">Port</div>
-	    <div class="image">
-	      <img src="./images/port.png" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>冷戦<rt>れいせん</rt></ruby>
-            <div class="meaning">Cold War</div>
-	    <div class="image">
-	      <img src="./images/cold-war.png" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>関係<rt>かんけい</rt></ruby>
-            <div class="meaning">Relationship</div>
-	    <div class="image">
-	      <img src="./images/relationship.png" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>返却<rt>へんきゃく</rt></ruby>
-            <div class="meaning">Return (of something)</div>
-	    <div class="image">
-	      <img src="./images/return.png" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>開始<rt>かいし</rt></ruby>
-            <div class="meaning">Start</div>
-	    <div class="image">
-	      <img src="./images/start.jpeg" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>同意<rt>どうい</rt></ruby>
-            <div class="meaning">Agreement</div>
-	    <div class="image">
-	      <img src="./images/agreement.jpeg" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>持つ<rt>もつ</rt></ruby>
-            <div class="meaning">To have</div>
-	    <div class="image">
-	      <img src="./images/to have.jpg" alt="korean">
-	    </div>
-
-        </div>
-        <div class="vocab-item">
-            <ruby>決める<rt>きめる</rt></ruby>
-            <div class="meaning">To decide</div>
-	    <div class="image">
-	      <img src="./images/decide 2.jpg.webp" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>支援<rt>しえん</rt></ruby>
-            <div class="meaning">Support</div>
-	    <div class="image">
-	      <img src="./images/support.png" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>決定<rt>けってい</rt></ruby>
-            <div class="meaning">Decision</div>
-	    <div class="image">
-	      <img src="./images/decide.jpg.webp" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>助け<rt>たすけ</rt></ruby>
-            <div class="meaning">Help</div>
-	    <div class="image">
-	      <img src="./images/help.png" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>敵<rt>てき</rt></ruby>
-            <div class="meaning">Enemy</div>
-	    <div class="image">
-	      <img src="./images/enemy.jpeg" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>世界<rt>せかい</rt></ruby>
-            <div class="meaning">World</div>
-	    <div class="image">
-	      <img src="./images/world.png" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>戻る<rt>もどる</rt></ruby>
-            <div class="meaning">To return</div>
-	    <div class="image">
-	      <img src="./images/back.jpg.webp" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>普通<rt>ふつう</rt></ruby>
-            <div class="meaning">Normal</div>
-	    <div class="image">
-	      <img src="./images/normal.jpg" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>残酷<rt>ざんこく</rt></ruby>
-            <div class="meaning">Cruel</div>
-	    <div class="image">
-	      <img src="./images/cruel.png" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>死亡<rt>しぼう</rt></ruby>
-            <div class="meaning">Death</div>
-	    <div class="image">
-	      <img src="./images/death.png" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>兵士<rt>へいし</rt></ruby>
-            <div class="meaning">Soldier</div>
-	    <div class="image">
-	      <img src="./images/soldier.png" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>平民<rt>へいみん</rt></ruby>
-            <div class="meaning">Civilian</div>
-	    <div class="image">
-	      <img src="./images/civilian.png" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>死傷者<rt>ししょうしゃ</rt></ruby>
-            <div class="meaning">Casualties</div>
-	    <div class="image">
-	      <img src="./images/casualities.jpeg" alt="korean">
-	    </div>
-        </div>
-        <div class="vocab-item">
-            <ruby>戦俘<rt>せんぷ</rt></ruby>
-            <div class="meaning">Prisoner of war</div>
-	    <div class="image">
-	      <img src="./images/prisoner.jpg.webp" alt="korean">
-	    </div>
-        </div>
-  </h3>
-
-  </div>
-</div>
-</body>
-    <script>
-    // Detect user's system language
-    const userLanguage = navigator.language || navigator.userLanguage;
-
-    // Check if the language is Simplified Chinese
-    const isSimplifiedChinese = userLanguage.startsWith('zh-CN');
-    // Set image based on the language
-    const imageSrc = isSimplifiedChinese ? "images/ccp-cn.jpg.webp" : "images/ccp.jpg";
-    document.getElementById('ccp').src = imageSrc;
-  </script>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://cdn.tailwindcss.com"></script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+      <style>
+         body {
+         --tilt-angle: 3deg;
+         font-family: "Noto Sans JP", Arial, sans-serif;
+         text-align: center;
+         }
+         .title{
+         /* Apple-like title style */
+         font-size: 36px;
+         font-weight: 600;
+         color: #333333; /* Dark gray for subtle elegance */
+         text-align: center;
+         letter-spacing: 1px; /* Slight letter spacing for refinement */
+         margin: 20px 0; /* Some space above and below the title */
+         transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+         }
+         /* Hover effect */
+         .title:hover {
+         transform: scale(1.05); /* Slight scale up effect for interaction */
+         }
+         .vocab-list {
+         justify-content: center;
+         }
+         .vocab-item {
+         display: flex;
+         flex-direction: row;
+         overflow: hidden; /* Prevents overflowing content */
+         align-items: center;
+         max-height: 70%;
+         min-height:50%
+         margin: 10px;
+         font-size: 37px;
+         font-weight: 600;
+         text-transform: uppercase;
+         background-color: #ffffff;
+         border: 2px solid #e0e0e0;
+         color: #333333;
+         text-align: center;
+         cursor: pointer;
+         position: sticky;
+         top: calc(var(--top) * 1px);
+         box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+         border-radius: 0.5em;
+         padding: 1em;
+         margin-bottom: 2em;
+         transform: rotate(calc(var(--tilt-angle) * (2 * (var(--r) - 0.5))));
+         transition: * 0.3s ease;
+         }
+         .vocab-item:hover{
+         background-color: #f5f5f5; /* Subtle background change */
+         transform: translateY(-4px); /* Slight lift effect */
+         box-shadow: 0 4px 12px rgba(0, 122, 255, 0.2); /* Soft, elegant shadow */
+         }
+         /* Active effect when clicked */
+         .vocab-item:active {
+         transform: translateY(2px); /* Subtle downward effect on click */
+         box-shadow: none;
+         }
+         .vocab-item .words{
+         flex: 1
+         }
+         .vocab-item .image{
+         flex: 1
+         }
+         .vocab-item .meaning {
+         margin-top: 10px;
+         color: #333;
+         }
+         .vocab-item:nth-child(4n) {
+         --r: 0.7;
+         --top: 0;
+         }
+         .vocab-item:nth-child(4n + 1) {
+         --r: 0.2;
+         --top: 50;
+         }
+         .vocab-item:nth-child(4n + 2) {
+         --r: 0.9;
+         --top: 100;
+         }
+         .vocab-item:nth-child(4n + 3) {
+         --r: 0.4;
+         --top: 150;
+      </style>
+   </head>
+   <body class="bg-stone-100 text-grary-950">
+      <div class="container mx-auto whitespace-normal ">
+         <h1 class="text-3xl font-bold text-center title">
+            <ruby>言葉<rt>ことば</rt></ruby> のリスト
+         </h1>
+         <hr/>
+         <div class=" vocab-list">
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>朝鮮<rt>ちょうせん</rt></ruby>
+                  <div class="meaning">Korea</div>
+               </div>
+               <div class="image">
+                  <img src="./images/korean.jpg" alt="Korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>戦争<rt>せんそう</rt></ruby>
+                  <div class="meaning">War</div>
+               </div>
+               <div class="image">
+                  <img src="./images/war.webp" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>原因<rt>げんいん</rt></ruby>
+                  <div class="meaning">Cause</div>
+               </div>
+               <div class="image">
+                  <img src="./images/cause.jpg" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>影響<rt>えいきょう</rt></ruby>
+                  <div class="meaning">Influence</div>
+               </div>
+               <div class="image">
+                  <img src="./images/influence.jpeg" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>以外<rt>いがい</rt></ruby>
+                  <div class="meaning">Except</div>
+               </div>
+               <div class="image">
+                  <img src="./images/except.png" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>他の国々<rt>ほかのくに</rt></ruby>
+                  <div class="meaning">Other countries</div>
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>内戦<rt>ないせん</rt></ruby>
+                  <div class="meaning">Civil war</div>
+               </div>
+               <div class="image">
+                  <img src="./images/civil-war.jpg" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>共産党<rt>きょうさんとう</rt></ruby>
+                  <div class="meaning">Communist Party</div>
+               </div>
+               <div class="image">
+                  <img id="ccp" src="./images/ccp.jpg" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>勝つ<rt>かつ</rt></ruby>
+                  <div class="meaning">To win</div>
+               </div>
+               <div class="image">
+                  <img src="./images/win.png" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>中華民国<rt>ちゅうかみんこく</rt></ruby>
+                  <div class="meaning">Republic of China </div>
+               </div>
+               <div class="image">
+                  <img src="./images/roc.png" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>台湾<rt>たいわん</rt></ruby>
+                  <div class="meaning">Taiwan</div>
+               </div>
+               <div class="image">
+                  <img src="./images/taiwan.jpg" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>ソ連<rt>それん</rt></ruby>
+                  <div class="meaning">Soviet Union</div>
+               </div>
+               <div class="image">
+                  <img src="./images/soviet-union.svg.png" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>不凍港<rt>ふとうこう</rt></ruby>
+                  <div class="meaning">Ice-free port</div>
+               </div>
+               <div class="image">
+                  <img src="./images/ice-free-port.jpg copy.jpg" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>求める<rt>もとめる</rt></ruby>
+                  <div class="meaning">To seek</div>
+               </div>
+               <div class="image">
+                  <img src="./images/seek.jpeg" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+                    <div class="words">
+               <ruby>満州<rt>まんしゅう</rt></ruby>
+               <div class="meaning">Manchuria</div>
+                    </div>
+               <div class="image">
+                  <img src="./images/Northeast_China.svg.png" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>鉄道<rt>てつどう</rt></ruby>
+                  <div class="meaning">Railroad</div>
+               </div>
+               <div class="image">
+                  <img src="./images/railroad.png" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>港<rt>みなと</rt></ruby>
+                  <div class="meaning">Port</div>
+               </div>
+               <div class="image">
+                  <img src="./images/port.png" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>冷戦<rt>れいせん</rt></ruby>
+                  <div class="meaning">Cold War</div>
+               </div>
+               <div class="image">
+                  <img src="./images/cold-war.png" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>関係<rt>かんけい</rt></ruby>
+                  <div class="meaning">Relationship</div>
+               </div>
+               <div class="image">
+                  <img src="./images/relationship.png" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>返却<rt>へんきゃく</rt></ruby>
+                  <div class="meaning">Return (of something)</div>
+               </div>
+               <div class="image">
+                  <img src="./images/return.png" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>開始<rt>かいし</rt></ruby>
+                  <div class="meaning">Start</div>
+               </div>
+               <div class="image">
+                  <img src="./images/start.jpeg" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>同意<rt>どうい</rt></ruby>
+                  <div class="meaning">Agreement</div>
+               </div>
+               <div class="image">
+                  <img src="./images/agreement.jpeg" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>持つ<rt>もつ</rt></ruby>
+                  <div class="meaning">To have</div>
+               </div>
+               <div class="image">
+                  <img src="./images/to have.jpg" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>決める<rt>きめる</rt></ruby>
+                  <div class="meaning">To decide</div>
+               </div>
+               <div class="image">
+                  <img src="./images/decide 2.jpg.webp" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>支援<rt>しえん</rt></ruby>
+                  <div class="meaning">Support</div>
+               </div>
+               <div class="image">
+                  <img src="./images/support.png" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>決定<rt>けってい</rt></ruby>
+                  <div class="meaning">Decision</div>
+               </div>
+               <div class="image">
+                  <img src="./images/decide.jpg.webp" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>助け<rt>たすけ</rt></ruby>
+                  <div class="meaning">Help</div>
+               </div>
+               <div class="image">
+                  <img src="./images/help.png" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>敵<rt>てき</rt></ruby>
+                  <div class="meaning">Enemy</div>
+               </div>
+               <div class="image">
+                  <img src="./images/enemy.jpeg" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>世界<rt>せかい</rt></ruby>
+                  <div class="meaning">World</div>
+               </div>
+               <div class="image">
+                  <img src="./images/world.png" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>戻る<rt>もどる</rt></ruby>
+                  <div class="meaning">To return</div>
+               </div>
+               <div class="image">
+                  <img src="./images/back.jpg.webp" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>普通<rt>ふつう</rt></ruby>
+                  <div class="meaning">Normal</div>
+               </div>
+               <div class="image">
+                  <img src="./images/normal.jpg" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>残酷<rt>ざんこく</rt></ruby>
+                  <div class="meaning">Cruel</div>
+               </div>
+               <div class="image">
+                  <img src="./images/cruel.png" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>死亡<rt>しぼう</rt></ruby>
+                  <div class="meaning">Death</div>
+               </div>
+               <div class="image">
+                  <img src="./images/death.png" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>兵士<rt>へいし</rt></ruby>
+                  <div class="meaning">Soldier</div>
+               </div>
+               <div class="image">
+                  <img src="./images/soldier.png" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>平民<rt>へいみん</rt></ruby>
+                  <div class="meaning">Civilian</div>
+               </div>
+               <div class="image">
+                  <img src="./images/civilian.png" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>死傷者<rt>ししょうしゃ</rt></ruby>
+                  <div class="meaning">Casualties</div>
+               </div>
+               <div class="image">
+                  <img src="./images/casualities.jpeg" alt="korean">
+               </div>
+            </div>
+            <div class="vocab-item">
+               <div class="words">
+                  <ruby>戦俘<rt>せんぷ</rt></ruby>
+                  <div class="meaning">Prisoner of war</div>
+               </div>
+               <div class="image">
+                  <img src="./images/prisoner.jpg.webp" alt="korean">
+               </div>
+            </div>
+            </h3>
+         </div>
+      </div>
+   </body>
+   <script>
+      // Detect user's system language
+      const userLanguage = navigator.language || navigator.userLanguage;
+      
+      // Check if the language is Simplified Chinese
+      const isSimplifiedChinese = userLanguage.startsWith('zh-CN');
+      // Set image based on the language
+      const imageSrc = isSimplifiedChinese ? "images/ccp-cn.jpg.webp" : "images/ccp.jpg";
+      document.getElementById('ccp').src = imageSrc;
+   </script>
 </html>
